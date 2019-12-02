@@ -1,1 +1,1 @@
-Rigo is here
+Wings left her friends at McDonalds
