@@ -61,10 +61,19 @@ def draw():
             scene = 'main'
             
     if scene == "main":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+        if isMouseWithinSpace(width-350, height-75, 100, 35):
             if mousePressed:
                 scene = ''
 
+    if isMouseWithinSpace(width-150, height-75, 127, 35):
+        if mousePressed:
+            Regels2.setup()
+            scene = 'regels2'
+            
+    if scene == "regels2":        
+        if isMouseWithinSpace(width-350, height-75, 100, 35):
+            if mousePressed:
+                scene = ''
             
             
         
