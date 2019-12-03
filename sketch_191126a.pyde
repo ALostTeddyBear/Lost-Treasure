@@ -13,8 +13,6 @@ def setup():
     bgm.amp(0.25)
     bgm.play()
     bgm.loop()
-    regel = SoundFile(this,"Regels.wav")
-    regel.play()
     
 
 def draw():
