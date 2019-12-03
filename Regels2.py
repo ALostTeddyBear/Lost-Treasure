@@ -1,7 +1,8 @@
+import Regels
+
 add_library("sound")
 import Functies
 import Main
-import Regels2
 
 def setup():
     global scene
@@ -15,15 +16,11 @@ def setup():
     
 def draw():
     global scene
-    if scene == "main":
-        Main.draw()
+    if scene == "regels":
+        Regels.draw()
         return
     
-    if scene == "regels2":
-        Regels2.draw()
-        return
-    
-    img = loadImage("SpelKlaarZetten.png")
+    img = loadImage("Speluitleg.png")
     imageMode(CENTER)
     image(img, width / 2, height / 2)
     
@@ -33,13 +30,7 @@ def draw():
     text("Spel Regels!", width / 2, height / 8)
     fill(240, 223, 55)
     
-    fill(255)
-    stroke(204, 102, 0)
-    rect(width-300, height-75, 127, 35)
-    
-    fill(0)
-    textSize(28)
-    text("Terug", width-240, height-47)
+
     
     fill(255)
     stroke(204, 102, 0)
@@ -47,7 +38,7 @@ def draw():
     
     fill(0)
     textSize(28)
-    text("Volgende", width-87, height-47)
+    text("Terug", width-87, height-47)
     
     def isMouseWithinSpace(x, y, breedte, hoogte):
         if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
@@ -55,25 +46,13 @@ def draw():
         else:
             return False
     
-    if isMouseWithinSpace(width-300, height-75, 127, 35):
-        if mousePressed:
-            Main.setup()
-            scene = 'main'
-            
-    if scene == "main":        
-        if isMouseWithinSpace(width-350, height-75, 100, 35):
-            if mousePressed:
-                scene = ''
-
     if isMouseWithinSpace(width-150, height-75, 127, 35):
         if mousePressed:
-            Regels2.setup()
-            scene = 'regels2'
+            Regels.setup()
+            scene = 'main'
             
-    if scene == "regels2":        
-        if isMouseWithinSpace(width-350, height-75, 100, 35):
+    if scene == "regels":        
+        if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
                 scene = ''
-            
-            
         

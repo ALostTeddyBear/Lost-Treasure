@@ -1,4 +1,9 @@
+import Regels as Screen3
+
 def setup():
+    global scene
+    
+    scene = ''
     fullScreen()
     Background = loadImage("image1.png")
     Background.resize(width, height)
