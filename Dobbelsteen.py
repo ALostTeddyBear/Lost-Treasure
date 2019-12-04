@@ -1,6 +1,8 @@
 def setup():
     global side, img
+    fullScreen()
     img = loadImage("5.jpg")
+    print(img)
     side = int(random(1, 7))
     
         
@@ -11,6 +13,9 @@ def draw():
     
     fill(255, 193, 224)
     rect(840, 400, 200, 200)
+    
+    def mousePressed():
+        global side
 
     
     if side == 1 or side == 3 or side == 5:
@@ -32,8 +37,8 @@ def draw():
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
         
-        
-def mousePressed():
-    global side
+side = int(random(1, 7))        
+
     
-    side = int(random(1, 7))
+
+    
