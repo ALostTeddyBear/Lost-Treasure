@@ -1,10 +1,12 @@
+add_library("sound")
 import Regels as Screen3
+import Opties as Screen2
 
 def setup():
-    global scene
-    
-    scene = ''
+    global bgm
     fullScreen()
+    global scene
+    scene = ''
     Background = loadImage("image1.png")
     Background.resize(width, height)
     background(Background)
@@ -14,6 +16,11 @@ def draw():
     if scene == "screen3":
         Screen3.draw()
         return
+    
+    if scene == "screen2":
+        Screen2.draw()
+        return
+    
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
@@ -48,19 +55,31 @@ def draw():
     textSize(28)
     text("Afsluiten", width-87, height-47)
     
-    def isMouseWithinSpace(x, y, breedte, hoogte):
-        if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
-            return True
-        else:
-            return False
-
-    
     if isMouseWithinSpace(width-150, height-75, 100, 35):
         if mousePressed:
             exit()
-    
+
     if isMouseWithinSpace(84, 225, 100, 35):
         if mousePressed:
             Screen3.setup()
-            scene = "screen1"
+            scene = "screen3"
+            
+    if isMouseWithinSpace(84, 150, 100, 35):
+        if mousePressed:
+            Screen2.setup()
+            scene = "screen2"
+            
+    if scene == "screen3":        
+        if isMouseWithinSpace(width-300, height-75, 100, 35):
+            if mousePressed:
+                scene = ''
     
+def isMouseWithinSpace(x, y, breedte, hoogte):
+    if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
+        return True
+    else:
+        return False
+
+
+
+            
