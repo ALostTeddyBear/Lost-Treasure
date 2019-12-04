@@ -1,1 +1,2 @@
-Rigo is here
+Lost Treasure digital component
+
