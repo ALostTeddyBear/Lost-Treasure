@@ -1,6 +1,6 @@
 add_library("sound")
 import Regels as Screen3
-import Opties as Screen2
+import Dobbelsteen as ScreenD
 
 def setup():
     global bgm
@@ -22,8 +22,8 @@ def draw():
         Screen3.draw()
         return
     
-    if scene == "screen2":
-        Screen2.draw()
+    if scene == "screenD":
+        ScreenD.draw()
         return
     
     
@@ -71,8 +71,8 @@ def draw():
             
     if isMouseWithinSpace(84, 150, 100, 35):
         if mousePressed:
-            Screen2.setup()
-            scene = "screen2"
+            ScreenD.setup()
+            scene = "screenD"
             
     if scene == "screen3":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
