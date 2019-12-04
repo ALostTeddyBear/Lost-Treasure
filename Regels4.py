@@ -1,7 +1,8 @@
 add_library("sound")
 import Functies
-import Main
-import Regels2
+import Regels3
+import Regels5
+
 
 def setup():
     global scene
@@ -15,15 +16,15 @@ def setup():
     
 def draw():
     global scene
-    if scene == "main":
-        Main.draw()
-        return
-    
     if scene == "regels2":
-        Regels2.draw()
+        Regels3.draw()
         return
     
-    img = loadImage("SpelKlaarZetten.png")
+    if scene ==  "regels5":
+        Regels5.draw()
+        return
+    
+    img = loadImage("Doel.png")
     imageMode(CENTER)
     image(img, width / 2, height / 2)
     
@@ -56,23 +57,20 @@ def draw():
     
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Main.setup()
-            scene = 'main'
+            Regels3.setup()
+            scene = "regels3"
             
-    if scene == "main":        
+    if scene == "regels3":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ''
-
+    
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
-            Regels2.setup()
-            scene = 'regels2'
+            Regels5.setup()
+            scene = "regels5"
             
-    if scene == "regels2":        
+    if scene == "regels5":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ''
-            
-            
-        
