@@ -5,14 +5,13 @@ import Regels2
 
 def setup():
     global scene
-    fullScreen()
     
+    fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
     Background.resize(width, height)
     background(Background)
 
-    
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True

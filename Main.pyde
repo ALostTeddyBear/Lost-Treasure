@@ -1,6 +1,7 @@
 add_library("sound")
-import Regels as Screen3
-import Dobbelsteen as ScreenD
+import Regels 
+import Dobbelsteen
+import PlayerSetup
 
 def setup():
     global bgm
@@ -10,20 +11,19 @@ def setup():
     Background = loadImage("image1.png")
     Background.resize(width, height)
     background(Background)
-    bgm = SoundFile(this,"The Captain's Parrot.wav")
-    bgm.amp(0.25)
-    bgm.play()
-    bgm.loop()
-    
 
 def draw():
     global scene
-    if scene == "screen3":
-        Screen3.draw()
+    if scene == "regels":
+        Regels.draw()
         return
     
-    if scene == "screenD":
-        ScreenD.draw()
+    if scene == "dobbelsteen":
+        Dobbelsteen.draw()
+        return
+    
+    if scene == "start":
+        PlayerSetup.draw()
         return
     
     
@@ -34,6 +34,7 @@ def draw():
     textSize(32)
     textAlign(CENTER)
     text("The Lost Treasures", width/2, 75)
+    
     fill(255)
     stroke(204, 102, 0)
     rect(84, 75, 100, 35)
@@ -60,24 +61,41 @@ def draw():
     textSize(28)
     text("Afsluiten", width-87, height-47)
     
+                    
+    if isMouseWithinSpace(84, 75, 100, 35):
+        if mousePressed:
+            PlayerSetup.setup()
+            scene = "start"            
+            
+    if scene == "start":        
+        if isMouseWithinSpace(width-300, height-75, 100, 35):
+            if mousePressed:
+                scene = ''
+                    
+    if isMouseWithinSpace(84, 150, 100, 35):
+        if mousePressed:
+            Dobbelsteen.setup()
+            scene = "dobbelsteen"            
+            
+    if scene == "dobbelsteen":        
+        if isMouseWithinSpace(width-300, height-75, 100, 35):
+            if mousePressed:
+                scene = ''
+    
+    if isMouseWithinSpace(84, 225, 100, 35):
+        if mousePressed:
+            Regels.setup()
+            scene = "regels"
+            
+    if scene == "regels":        
+        if isMouseWithinSpace(width-300, height-75, 100, 35):
+            if mousePressed:
+                scene = ''        
+            
     if isMouseWithinSpace(width-150, height-75, 100, 35):
         if mousePressed:
             exit()
 
-    if isMouseWithinSpace(84, 225, 100, 35):
-        if mousePressed:
-            Screen3.setup()
-            scene = "screen3"
-            
-    if isMouseWithinSpace(84, 150, 100, 35):
-        if mousePressed:
-            ScreenD.setup()
-            scene = "screenD"
-            
-    if scene == "screen3":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
-            if mousePressed:
-                scene = ''
     
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
