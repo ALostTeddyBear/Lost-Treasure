@@ -1,5 +1,6 @@
 add_library("sound")
 import Regels as Screen3
+import Dobbelsteen as ScreenD
 
 def setup():
     global bgm
@@ -20,6 +21,11 @@ def draw():
     if scene == "screen3":
         Screen3.draw()
         return
+    
+    if scene == "screenD":
+        ScreenD.draw()
+        return
+    
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
@@ -62,6 +68,11 @@ def draw():
         if mousePressed:
             Screen3.setup()
             scene = "screen3"
+            
+    if isMouseWithinSpace(84, 150, 100, 35):
+        if mousePressed:
+            ScreenD.setup()
+            scene = "screenD"
             
     if scene == "screen3":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
