@@ -56,7 +56,7 @@ def draw():
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
 
-    if isMouseWithinSpace(width - 150, height - 75, 127, 35):
+    if isMouseWithinSpace(width - 159, height - 75, 127, 35):
         if mousePressed:
             Main.setup()
             scene = 'main'
