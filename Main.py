@@ -18,10 +18,10 @@ def draw():
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
     
-    fill(0, 255, 255)
-    textSize(32)
+    fill(240, 223, 55)
+    textSize(100)
     textAlign(CENTER)
-    text("The Lost Treasures", width/2, 75)
+    text("The Lost Treasure", width/2, height/8)
     fill(255)
     stroke(204, 102, 0)
     rect(84, 75, 100, 35)
