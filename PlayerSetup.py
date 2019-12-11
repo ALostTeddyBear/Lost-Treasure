@@ -1,3 +1,5 @@
+import Dobbelsteen
+
 def setup():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img
     fullScreen()
@@ -92,7 +94,10 @@ def draw():
         fill(0)
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
-    
+        
+    if Dobbelsteen.isMouseWithinSpace(840, 400, 200, 200):
+        if mousePressed:
+            side = int(random(1, 7))
     
 def mousePressed():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
@@ -111,8 +116,7 @@ def mousePressed():
     if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
         textBox5IsActive = not textBox5IsActive
         
-    if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
-        side = int(random(1, 7))
+    
         
 
 

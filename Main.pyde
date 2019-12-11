@@ -108,13 +108,13 @@ def draw():
         if mousePressed:
             exit()
 
-# def mousePressed():
-#     global scene
-#     PlayerSetup.mousePressed()
+def mousePressed():
+    global scene
+    PlayerSetup.mousePressed()
 
     
-# def keyPressed():
-#     PlayerSetup.keyPressed()
+def keyPressed():
+    PlayerSetup.keyPressed()
 
 
 
