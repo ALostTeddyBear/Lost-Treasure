@@ -1,14 +1,21 @@
 import Dobbelsteen
 
 def setup():
-    global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img
+    global message, message2, message3, message4, message5, message6, message7, message8, message9, message10
+    global textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img, img2, img3, img4, img5, img6
     fullScreen()
     img = loadImage("5.jpg")
-    message = 'Naam speler 1'
-    message2 = 'Naam speler 2'
-    message3 = 'Naam speler 3'
-    message4 = 'Naam speler 4'
-    message5 = 'Naam speler 5'
+    img2 = loadImage("Speler1.PNG")
+    img3 = loadImage("Speler2.PNG")
+    img4 = loadImage("Speler3.PNG")
+    img5 = loadImage("Speler4.PNG")
+    img6 = loadImage("Speler5.PNG")
+    message = 'Naam speler'
+    message2 = 'Naam speler'
+    message3 = 'Naam speler'
+    message4 = 'Naam speler'
+    message5 = 'Naam speler'
+
     textBoxIsActive = False
     textBox2IsActive = False
     textBox3IsActive = False
@@ -17,8 +24,14 @@ def setup():
     side = int(random(1, 7))
 
 def draw():
-    global side, img
+    global side, img, img2, img3, img4, img5
     image(img, 0, 0, width, height)
+    image(img2, 190, 60, 90, 40)
+    image(img3, 190, 260, 90, 40)
+    image(img4, 190, 460, 90, 40) 
+    image(img5, 190, 660, 90, 40)
+    image(img6, 190, 860, 90, 40)
+    
     if textBoxIsActive:
         fill(255)
     else:
@@ -51,25 +64,24 @@ def draw():
     rect(100, 900, 250, 80)
     
     fill(0)
-    textSize(25)
-    text(message, 120, 140)
+    textSize(32)
+    text(message, 220, 140)
     
     fill(0)
-    textSize(25)
-    text(message2, 120, 340)
+    textSize(32)
+    text(message2, 220, 340)
     
     fill(0)
-    textSize(25)
-    text(message3, 120, 540)
+    textSize(32)
+    text(message3, 220, 540)
     
     fill(0)
-    textSize(25)
-    text(message4, 120, 740)
+    textSize(32)
+    text(message4, 220, 740)
     
     fill(0)
-    textSize(25)
-    text(message5, 120, 940)
-    
+    textSize(32)
+    text(message5, 220, 940)
     
         
     fill(255, 193, 224)
@@ -96,8 +108,10 @@ def draw():
         ellipse(875, 500, 50, 50)
         
     if Dobbelsteen.isMouseWithinSpace(840, 400, 200, 200):
-        if mousePressed:
+        if mouseButton == LEFT:
             side = int(random(1, 7))
+            if mouseButton == RIGHT:
+                print('return')
     
 def mousePressed():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
