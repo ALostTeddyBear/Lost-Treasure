@@ -5,14 +5,13 @@ import Regels2
 
 def setup():
     global scene
-    fullScreen()
     
+    fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
     Background.resize(width, height)
     background(Background)
 
-    
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True
@@ -52,24 +51,23 @@ def draw():
     
     fill(0)
     textSize(28)
-    text("Volgende", width - 87, height - 47)
+    text("Volgende", width - q87, height - 47)
     
-    
-    if isMouseWithinSpace(width - 300, height - 75, 127, 35):
+
+    if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
         if mousePressed:
             Main.setup()
-            scene = 'main'
-            
+                
     if scene == "main":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ''
-
+    
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
             Regels2.setup()
             scene = 'regels2'
-            
+                
     if scene == "regels2":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
