@@ -1,7 +1,8 @@
 add_library("sound")
 import Functies
-import Main
-import Regels2
+import Regels5
+import Regels7
+
 
 def setup():
     global scene
@@ -13,23 +14,17 @@ def setup():
     background(Background)
 
     
-def isMouseWithinSpace(x, y, breedte, hoogte):
-    if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
-        return True
-    else:
-        return False
-    
 def draw():
     global scene
-    if scene == "main":
-        Main.draw()
+    if scene == "regels5":
+        Regels5.draw()
         return
     
-    if scene == "regels2":
-        Regels2.draw()
+    if scene ==  "regels7":
+        Regels7.draw()
         return
     
-    img = loadImage("SpelKlaarZetten.png")
+    img = loadImage("VloekKaarten.png")
     imageMode(CENTER)
     image(img, width / 2, height / 2)
     
@@ -54,26 +49,30 @@ def draw():
     textSize(28)
     text("Volgende", width - 87, height - 47)
     
+    def isMouseWithinSpace(x, y, breedte, hoogte):
+        if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
+            return True
+        else:
+            return False
     
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Main.setup()
-            scene = 'main'
+            Regels5.setup()
+            scene = "regels5"
             
-    if scene == "main":        
+    if scene == "regels5":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
-                scene = ''
-
+                scene = ""
+                
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
-            Regels2.setup()
-            scene = 'regels2'
+            Regels7.setup()
+            scene = "regels7"
             
-    if scene == "regels2":        
+    if scene == "regels7":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
-                scene = ''
-            
-            
-        
+                scene = ""
+                
+    
