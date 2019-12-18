@@ -5,13 +5,18 @@ import Regels8
 
 def setup():
     global scene
-    fullScreen()
     
+    fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
     Background.resize(width, height)
     background(Background)
-
+    
+def isMouseWithinSpace(x, y, breedte, hoogte):
+    if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
+        return True
+    else:
+        return False
     
 def draw():
     global scene
@@ -23,7 +28,7 @@ def draw():
         Main.draw()
         return    
     
-    img1 = loadImage("VoorbeeldMap1.png")
+    img1 = loadImage("images/VoorbeeldMap1.png")
     img2 = loadImage("VoorbeeldMap2.png")
     img3 = loadImage("VoorbeeldMap3.png")
     img4 = loadImage("VoorbeeldMap4.png")
@@ -52,13 +57,6 @@ def draw():
     fill(0)
     textSize(28)
     text("Terug", width - 87, height - 47)
-    
-    
-    def isMouseWithinSpace(x, y, breedte, hoogte):
-        if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
-            return True
-        else:
-            return False
     
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
