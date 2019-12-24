@@ -115,7 +115,3 @@ def mousePressed():
     
 def keyPressed():
     PlayerSetup.keyPressed()
-
-
-
-            

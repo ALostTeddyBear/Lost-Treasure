@@ -94,10 +94,15 @@ def draw():
         fill(0)
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
+    
+    print(mousePressed)
         
     if Dobbelsteen.isMouseWithinSpace(840, 400, 200, 200):
-        if mousePressed:
+        if mouseButton == LEFT:
+            print('yeet')
             side = int(random(1, 7))
+            if mouseButton == RIGHT:
+                return
     
 def mousePressed():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
@@ -115,7 +120,8 @@ def mousePressed():
         
     if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
         textBox5IsActive = not textBox5IsActive
-        
+    
+    
     
         
 
