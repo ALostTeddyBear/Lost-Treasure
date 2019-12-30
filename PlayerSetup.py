@@ -1,8 +1,9 @@
 import Dobbelsteen
+import Main
 
 def setup():
     global message, message2, message3, message4, message5, message6, message7, message8, message9, message10
-    global textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img, img2, img3, img4, img5, img6
+    global textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img, img2, img3, img4, img5, img6, scene
     fullScreen()
     img = loadImage("5.jpg")
     img2 = loadImage("Speler1.PNG")
@@ -15,22 +16,38 @@ def setup():
     message3 = 'Naam speler'
     message4 = 'Naam speler'
     message5 = 'Naam speler'
+    
+    scene = ''
+    
 
     textBoxIsActive = False
     textBox2IsActive = False
     textBox3IsActive = False
     textBox4IsActive = False
     textBox5IsActive = False
+    
     side = int(random(1, 7))
-
+    
+def isMouseWithinSpace(x, y, breedte, hoogte):
+    if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
+        return True
+    else:
+        return False
+    
 def draw():
-    global side, img, img2, img3, img4, img5
+    global side, img, img2, img3, img4, img5, scene
     image(img, 0, 0, width, height)
     image(img2, 190, 60, 90, 40)
     image(img3, 190, 260, 90, 40)
     image(img4, 190, 460, 90, 40) 
     image(img5, 190, 660, 90, 40)
     image(img6, 190, 860, 90, 40)
+    
+    if scene == "main":
+        Main.draw()
+        return
+    
+
     
     if textBoxIsActive:
         fill(255)
@@ -115,6 +132,18 @@ def draw():
             side = int(random(1, 7))
             print('return')
     
+
+    fill(255)
+    stroke(204, 102, 0)
+    rect(1770, 1010, 127, 35)
+    
+    fill(0)
+    textSize(28)
+    text("Terug", width-87, height-47)
+    
+
+
+
 def mousePress():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
     if mouseX >= 100 and mouseX <= 350 and mouseY >=100 and mouseY <=180:
@@ -131,8 +160,11 @@ def mousePress():
         
     if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
         textBox5IsActive = not textBox5IsActive
-    
-    
+
+    if mouseX >= 1770 and mouseX <= 1897 and mouseY >= 1010 and mouseY <= 1045:
+        if mousePressed:
+            Main.setup()
+            scene = 'main'
     
         
 
