@@ -52,8 +52,7 @@ def draw():
     textSize(28)
     text("Volgende", width - 87, height - 47)
     
-
-    if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
+    if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
             Main.setup()
                 
