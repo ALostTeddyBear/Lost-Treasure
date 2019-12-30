@@ -1,5 +1,4 @@
 add_library("sound")
-import Functies
 import Main
 import Regels8
 
@@ -28,7 +27,7 @@ def draw():
         Main.draw()
         return    
     
-    img1 = loadImage("images/VoorbeeldMap1.png")
+    img1 = loadImage("VoorbeeldMap1.png")
     img2 = loadImage("VoorbeeldMap2.png")
     img3 = loadImage("VoorbeeldMap3.png")
     img4 = loadImage("VoorbeeldMap4.png")
