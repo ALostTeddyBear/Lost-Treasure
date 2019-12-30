@@ -107,9 +107,11 @@ def draw():
         if mousePressed:
             exit()
 
+
 def mousePress():
     global scene, textBoxIsActive
     PlayerSetup.mousePresss()
+
 
     
 def keyPressed():
