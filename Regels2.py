@@ -1,5 +1,4 @@
 add_library("sound")
-import Functies
 import Regels
 import Regels3
 
