@@ -33,7 +33,7 @@ def draw():
     if scene == "start":
         PlayerSetup.draw()
         return
-    
+
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
@@ -103,14 +103,20 @@ def draw():
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
                 scene = ''        
+
             
     if isMouseWithinSpace(width-150, height-75, 100, 35):
         if mousePressed:
             exit()
+            
+
 
 def mousePressed():
-    global scene
+    global scene, side
     PlayerSetup.mousePressed()
+
+
+
 
     
 def keyPressed():

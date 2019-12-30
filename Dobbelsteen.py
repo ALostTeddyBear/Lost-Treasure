@@ -2,9 +2,7 @@ import Main
 
 def setup():
     global side, img, scene
-
     scene = ''
-
     side = int(random(1, 7))
 
 def isMouseWithinSpace(x, y, breedte, hoogte):
@@ -19,9 +17,9 @@ def draw():
         Main.draw()
         return
 
-
-
-
+    side = int(random(1, 7))
+    loop() 
+    
     fill(255, 193, 224)
     rect(840, 400, 200, 200)
 
@@ -32,10 +30,6 @@ def draw():
     fill(0)
     textSize(28)
     text("Terug", width-87, height-47)
-
-    if isMouseWithinSpace(840, 400, 200, 200):
-        if mousePressed:
-            side = int(random(1, 7))
 
     if side == 1 or side == 3 or side == 5:
         fill(0)
@@ -55,6 +49,11 @@ def draw():
         fill(0)
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
+        
+    #if isMouseWithinSpace(840, 400, 200, 200):
+           # side = int(random(1, 7)) 
+           # noLoop() 
+            #redraw()
 
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
@@ -65,3 +64,15 @@ def draw():
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ""
+                
+def MousePressed():
+    global side
+    if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
+        if mousePressed:
+            side = int(random(1, 7))
+            noLoop()
+            redraw()
+
+
+
+    
