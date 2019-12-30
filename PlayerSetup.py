@@ -132,8 +132,6 @@ def draw():
             side = int(random(1, 7))
             print('return')
     
-<<<<<<< HEAD
-
 
     fill(255)
     stroke(204, 102, 0)
@@ -146,12 +144,8 @@ def draw():
 
 
 
-def mousePressed():
-    global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, scene
-=======
 def mousePress():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
->>>>>>> 5396e4d074af1898f1f10f9d3e8d34eb4da009d1
     if mouseX >= 100 and mouseX <= 350 and mouseY >=100 and mouseY <=180:
         textBoxIsActive = not textBoxIsActive
     
@@ -166,23 +160,12 @@ def mousePress():
         
     if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
         textBox5IsActive = not textBox5IsActive
-<<<<<<< HEAD
-
 
     if mouseX >= 1770 and mouseX <= 1897 and mouseY >= 1010 and mouseY <= 1045:
         if mousePressed:
             Main.setup()
             scene = 'main'
-            
-
-        
-
-
-=======
     
-    
-    
->>>>>>> 5396e4d074af1898f1f10f9d3e8d34eb4da009d1
         
 
 

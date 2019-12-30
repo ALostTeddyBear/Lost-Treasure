@@ -107,16 +107,11 @@ def draw():
         if mousePressed:
             exit()
 
-<<<<<<< HEAD
-def mousePressed():
-    global scene
-    # if mouseX >= 84 and mouseX <= 184 and mouseY >= 75 and mouseY <= 110:
-    PlayerSetup.mousePressed()
-=======
+
 def mousePress():
     global scene, textBoxIsActive
     PlayerSetup.mousePresss()
->>>>>>> 5396e4d074af1898f1f10f9d3e8d34eb4da009d1
+
 
     
 def keyPressed():
