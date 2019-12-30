@@ -1,7 +1,7 @@
 import Main
 
 def setup():
-    global side, img, scene
+    global side, img, scene, textBoxIsActive
     
     scene = ''
     
@@ -14,7 +14,7 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
         return False
                 
 def draw():
-    global side, img, scene
+    global side, img, scene, textBoxIsActive
     if scene == "main":
         Main.draw()
         return

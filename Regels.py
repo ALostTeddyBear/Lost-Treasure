@@ -1,5 +1,4 @@
 add_library("sound")
-import Functies
 import Main
 import Regels2
 
@@ -51,7 +50,7 @@ def draw():
     
     fill(0)
     textSize(28)
-    text("Volgende", width - q87, height - 47)
+    text("Volgende", width - 87, height - 47)
     
 
     if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:

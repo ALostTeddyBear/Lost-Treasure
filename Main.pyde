@@ -5,9 +5,8 @@ import PlayerSetup
 
 
 def setup():
-    global bgm
+    global bgm, scene
     fullScreen()
-    global scene
     scene = ''
     Background = loadImage("image1.png")
     Background.resize(width, height)
@@ -108,14 +107,11 @@ def draw():
         if mousePressed:
             exit()
 
-def mousePressed():
-    global scene
-    PlayerSetup.mousePressed()
+def mousePress():
+    global scene, textBoxIsActive
+    PlayerSetup.mousePresss()
 
     
 def keyPressed():
+    global scene, textBoxIsActive
     PlayerSetup.keyPressed()
-
-
-
-            
