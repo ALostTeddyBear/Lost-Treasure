@@ -110,6 +110,7 @@ def draw():
 
 def mousePressed():
     global scene
+    # if mouseX >= 84 and mouseX <= 184 and mouseY >= 75 and mouseY <= 110:
     PlayerSetup.mousePressed()
 
     
