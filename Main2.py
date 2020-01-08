@@ -111,9 +111,9 @@ def draw():
             
 
     
-#def mousePressed():
- #   global scene, textBoxIsActive
-  #  PlayerSetup.mousePressed()
+def mousePressed():
+    global scene, textBoxIsActive
+    PlayerSetup.mousePressed()
 
 
 

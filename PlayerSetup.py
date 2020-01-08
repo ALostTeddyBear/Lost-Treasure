@@ -1,5 +1,5 @@
 import Dobbelsteen
-import Main
+import Main2
 
 def setup():
     global message, message2, message3, message4, message5, message6, message7, message8, message9, message10, scene
@@ -17,15 +17,14 @@ def setup():
     message4 = 'Naam speler'
     message5 = 'Naam speler'
 
-    textBoxIsActive = False
-    textBox2IsActive = False
-    textBox3IsActive = False
-    textBox4IsActive = False
-    textBox5IsActive = False
+#    textBoxIsActive = False
+ #   textBox2IsActive = False
+  #  textBox3IsActive = False
+   # textBox4IsActive = False
+    #textBox5IsActive = False
     side = int(random(1, 7))
     
     scene = ''
-
 
 def draw():
     global side, img, img2, img3, img4, img5, scene
@@ -36,39 +35,40 @@ def draw():
     image(img5, 190, 660, 90, 40)
     image(img6, 190, 860, 90, 40)
     
-    if scene == 'main':
-        Main.draw()
+
+    if scene == 'main2':
+        Main2.draw()
         return
     
-    if textBoxIsActive:
-        fill(255)
-    else:
-        fill(0, 200, 0)
-    
+#    if textBoxIsActive:
+ #       fill(255)
+ #   else:
+    fill(0, 200, 0)
     rect(100, 100, 250, 80)
     
-    if textBox2IsActive:
-        fill(255)
-    else:
-        fill(250, 0, 0)
+ #   if textBox2IsActive:
+  #      fill(255)
+   # else:
+    fill(250, 0, 0)
     rect(100, 300, 250, 80)
     
-    if textBox3IsActive:
-        fill(255)
-    else:
-        fill(20, 138, 230)
+
+ #   if textBox3IsActive:
+  #      fill(255)
+   # else:
+    fill(20, 138, 230)
     rect(100, 500, 250, 80)
     
-    if textBox4IsActive:
-        fill(255)
-    else:
-        fill(255, 255, 55)
+ #   if textBox4IsActive:
+  #      fill(255)
+  #  else:
+    fill(255, 255, 55)
     rect(100, 700, 250, 80)
     
-    if textBox5IsActive:
-        fill(255)
-    else:
-        fill(100)
+  #  if textBox5IsActive:
+   #     fill(255)
+    #else:
+    fill(100)
     rect(100, 900, 250, 80)
     
     fill(0)
@@ -121,68 +121,75 @@ def draw():
         if mouseButton == LEFT:
             print('yeet')
             side = int(random(1, 7))
-<<<<<<< HEAD
+
             if mouseButton == RIGHT:
                 print('return')
                 
     fill(255)
     stroke(204, 102, 0)
     rect(1770, 1010, 127, 35)
+
     
     fill(0)
     textSize(28)
     text("Terug", width-87, height-47)
     
+   
 
-def mousePressed():
-    global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, scene
-=======
-            print('return')
     
-def mousePress():
-    global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
->>>>>>> 5396e4d074af1898f1f10f9d3e8d34eb4da009d1
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=100 and mouseY <=180:
-        textBoxIsActive = not textBoxIsActive
-    
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=300 and mouseY <=380:
-        textBox2IsActive = not textBox2IsActive
-        
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=500 and mouseY <=580:
-        textBox3IsActive = not textBox3IsActive
-        
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=700 and mouseY <=780:
-        textBox4IsActive = not textBox4IsActive
-        
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
-        textBox5IsActive = not textBox5IsActive
-<<<<<<< HEAD
-
     if mouseX >= 1770 and mouseX <= 1897 and mouseY >= 1010 and mouseY <= 1045:
         if mousePressed:
-            Main.setup()
-            scene = 'main'
-=======
-    
-    
->>>>>>> 5396e4d074af1898f1f10f9d3e8d34eb4da009d1
-    
+            Main2.setup()
+            scene = 'main2'
+
+   
+
+#def mousePressed():
+    global textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive
+        
+ #   if mouseX >= 100 and mouseX <= 350 and mouseY >=300 and mouseY <=380:
+     #   if mousePressed:
+      #    textBox2IsActive == True
+      #    textBox2IsActive = not textBox2IsActive
+          
+  #  if mouseX >= 100 and mouseX <= 350 and mouseY >=500 and mouseY <=580:
+      #  if mousePressed:
+       #   textBox3IsActive == True
+      #    textBox3IsActive = not textBox3IsActive
+        
+  #  if mouseX >= 100 and mouseX <= 350 and mouseY >=700 and mouseY <=780:
+    #    if mousePressed:
+     #     textBox4IsActive == True
+ #   textBox4IsActive = not textBox4IsActive
+        
+   # if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
+    #    if mousePressed:
+     #     textBox5IsActive == True
+       #   textBox5IsActive = not textBox5IsActive
+
+    #if mouseX >= 100 and mouseX <= 350 and mouseY >=100 and mouseY <=180:
+     #   if mousePressed:
+      #    textBoxIsActive == True
+       #   textBoxIsActive = not textBoxIsActive
+
         
 
 
 def keyPressed():
-    global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive
-    if textBoxIsActive:
+    global message, message2, message3, message4, message5
+    
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=100 and mouseY <=180:
         if key == BACKSPACE:
             message = message[:-1]
         else:
             if keyCode == SHIFT:
-               return
+                return
             if textWidth(message + key) > 250 - 40:
-               return
+                return
             message += key
-        
-    if textBox2IsActive:
+
+
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=300 and mouseY <=380:
         if key == BACKSPACE:
             message2 = message2[:-1]
         else:
@@ -191,8 +198,9 @@ def keyPressed():
             if textWidth(message2 + key) > 250 - 40:
                return
             message2 += key
-            
-    if textBox3IsActive:
+
+    
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=500 and mouseY <=580:
         if key == BACKSPACE:
             message3 = message3[:-1]
         else:
@@ -201,8 +209,9 @@ def keyPressed():
             if textWidth(message3 + key) > 250 - 40:
                return
             message3 += key
-            
-    if textBox4IsActive:
+
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
+
         if key == BACKSPACE:
             message4 = message4[:-1]
         else:
@@ -211,8 +220,9 @@ def keyPressed():
             if textWidth(message4 + key) > 250 - 40:
                return
             message4 += key
-            
-    if textBox5IsActive:
+          
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
+
         if key == BACKSPACE:
             message5 = message5[:-1]
         else:
