@@ -1,10 +1,8 @@
-add_library("sound")
 import Regels
 import Regels3
 
 def setup():
     global scene
-    
     fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
@@ -19,9 +17,6 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
     
 def draw():
     global scene
-    if scene == "regels":
-        Regels.draw()
-        return
     
     if scene == "regels3":
         Regels3.draw()
@@ -55,7 +50,7 @@ def draw():
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
             Regels.setup()
-            scene = 'main'
+            scene = 'regels'
             
     if scene == "regels":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):

@@ -1,10 +1,8 @@
-add_library("sound")
 import Regels4
 import Regels6
 
 def setup():
     global scene
-    
     fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")

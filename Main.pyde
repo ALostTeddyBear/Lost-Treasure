@@ -1,38 +1,36 @@
-add_library("sound")
 import Regels 
 import Dobbelsteen
 import PlayerSetup
-
+import Settings
 
 def setup():
-    global bgm, scene
+    global Background
     fullScreen()
-    scene = ''
     Background = loadImage("image1.png")
     Background.resize(width, height)
     background(Background)
-    
     
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True
     else:
         return False
-    
+
 def draw():
-    global scene
-    if scene == "regels":
+    print(Settings.scene)
+    if Settings.scene == "regels":
         Regels.draw()
         return
     
-    if scene == "dobbelsteen":
+    if Settings.scene == "dobbelsteen":
         Dobbelsteen.draw()
         return
     
-    if scene == "start":
+    if Settings.scene == "start":
         PlayerSetup.draw()
         return
     
+    background(Background)
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
@@ -68,52 +66,45 @@ def draw():
     textSize(28)
     text("Afsluiten", width-87, height-47)
     
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
+    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
         if mousePressed:
             exit()
-
                 
-    if isMouseWithinSpace(84, 75, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 75 and mouseY <= 110:
         if mousePressed:
             PlayerSetup.setup()
-            scene = "start"            
+            Settings.scene = 'start'           
             
-    if scene == "start":        
+    if Settings.scene == "start":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
-                scene = ''
+                Settings.scene = ''
                     
-    if isMouseWithinSpace(84, 150, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 150 and mouseY <= 185:
         if mousePressed:
             Dobbelsteen.setup()
-            scene = "dobbelsteen"            
+            Settings.scene = 'dobbelsteen'            
             
-    if scene == "dobbelsteen":        
+    if Settings.scene == "dobbelsteen":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
-                scene = ''
+                Settings.scene = ''
     
-    if isMouseWithinSpace(84, 225, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 225 and mouseY <= 260:
         if mousePressed:
             Regels.setup()
-            scene = "regels"
+            Settings.scene = 'regels'
+    
             
-    if scene == "regels":        
+    if Settings.scene == "regels":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
-                scene = ''        
+                Settings.scene = ''        
+
             
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
+    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
         if mousePressed:
             exit()
-
-
-def mousePress():
-    global scene, textBoxIsActive
-    PlayerSetup.mousePresss()
-
-
-    
+            
 def keyPressed():
-    global scene, textBoxIsActive
     PlayerSetup.keyPressed()
