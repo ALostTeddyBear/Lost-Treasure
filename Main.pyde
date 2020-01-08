@@ -108,7 +108,7 @@ def draw():
             exit()
 
 
-def mousePress():
+def mousePresw():
     global scene, textBoxIsActive
     PlayerSetup.mousePresss()
 
