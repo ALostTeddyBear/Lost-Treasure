@@ -1,17 +1,14 @@
-add_library("sound")
 import Regels 
 import Dobbelsteen
 import PlayerSetup
 
-
 def setup():
-    global bgm, scene
+    global scene
     fullScreen()
     scene = ''
     Background = loadImage("image1.png")
     Background.resize(width, height)
     background(Background)
-    
     
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
@@ -32,7 +29,6 @@ def draw():
     if scene == "start":
         PlayerSetup.draw()
         return
-    
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
@@ -107,13 +103,8 @@ def draw():
         if mousePressed:
             exit()
 
-
-def mousePress():
-    global scene, textBoxIsActive
-    PlayerSetup.mousePresss()
-
-
+def mouseButton():
+    PlayerSetup.mousePress()
     
 def keyPressed():
-    global scene, textBoxIsActive
     PlayerSetup.keyPressed()

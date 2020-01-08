@@ -2,9 +2,8 @@ import Main
 
 def setup():
     global side, img, scene, textBoxIsActive
-    
     scene = ''
-    
+    textBoxIsActive = False
     side = int(random(1, 7))
     
 def isMouseWithinSpace(x, y, breedte, hoogte):
@@ -14,14 +13,11 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
         return False
                 
 def draw():
-    global side, img, scene, textBoxIsActive
+    global side, img, scene
     if scene == "main":
         Main.draw()
         return
 
-    
-
-    
     fill(255, 193, 224)
     rect(840, 400, 200, 200)
     

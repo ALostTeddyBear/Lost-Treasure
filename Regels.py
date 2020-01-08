@@ -1,10 +1,8 @@
-add_library("sound")
 import Main
 import Regels2
 
 def setup():
     global scene
-    
     fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
@@ -51,7 +49,6 @@ def draw():
     fill(0)
     textSize(28)
     text("Volgende", width - 87, height - 47)
-    
 
     if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
         if mousePressed:
@@ -71,6 +68,3 @@ def draw():
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ''
-            
-            
-        

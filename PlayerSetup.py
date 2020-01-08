@@ -1,5 +1,4 @@
 import Dobbelsteen
-import Main
 
 def setup():
     global message, message2, message3, message4, message5, message6, message7, message8, message9, message10
@@ -16,10 +15,7 @@ def setup():
     message3 = 'Naam speler'
     message4 = 'Naam speler'
     message5 = 'Naam speler'
-    
     scene = ''
-    
-
     textBoxIsActive = False
     textBox2IsActive = False
     textBox3IsActive = False
@@ -27,12 +23,6 @@ def setup():
     textBox5IsActive = False
     
     side = int(random(1, 7))
-    
-def isMouseWithinSpace(x, y, breedte, hoogte):
-    if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
-        return True
-    else:
-        return False
     
 def draw():
     global side, img, img2, img3, img4, img5, scene
@@ -46,8 +36,6 @@ def draw():
     if scene == "main":
         Main.draw()
         return
-    
-
     
     if textBoxIsActive:
         fill(255)
@@ -104,7 +92,6 @@ def draw():
     fill(255, 193, 224)
     rect(840, 400, 200, 200)
 
-    
     if side == 1 or side == 3 or side == 5:
         fill(0)
         ellipse(940, 500, 50, 50)
@@ -124,7 +111,6 @@ def draw():
         ellipse(1005, 500, 50, 50)
         ellipse(875, 500, 50, 50)
     
-    print(mousePressed)
         
     if Dobbelsteen.isMouseWithinSpace(840, 400, 200, 200):
         if mouseButton == LEFT:
@@ -140,9 +126,6 @@ def draw():
     fill(0)
     textSize(28)
     text("Terug", width-87, height-47)
-    
-
-
 
 def mousePress():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side
@@ -160,14 +143,6 @@ def mousePress():
         
     if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
         textBox5IsActive = not textBox5IsActive
-
-    if mouseX >= 1770 and mouseX <= 1897 and mouseY >= 1010 and mouseY <= 1045:
-        if mousePressed:
-            Main.setup()
-            scene = 'main'
-    
-        
-
 
 def keyPressed():
     global message, message2, message3, message4, message5, textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive
