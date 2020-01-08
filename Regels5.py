@@ -1,6 +1,6 @@
 add_library("sound")
-import Main
-import Regels2
+import Regels4
+import Regels6
 
 def setup():
     global scene
@@ -16,18 +16,18 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
         return True
     else:
         return False
-    
+
 def draw():
     global scene
-    if scene == "main":
-        Main.draw()
+    if scene == "regels4":
+        Regels4.draw()
         return
     
-    if scene == "regels2":
-        Regels2.draw()
+    if scene ==  "regels6":
+        Regels6.draw()
         return
     
-    img = loadImage("SpelKlaarZetten.png")
+    img = loadImage("ValKaarten.png")
     imageMode(CENTER)
     image(img, width / 2, height / 2)
     
@@ -52,25 +52,23 @@ def draw():
     textSize(28)
     text("Volgende", width - 87, height - 47)
     
-
-    if mouseX >= 840 and mouseX <= 1040 and mouseY >= 400 and mouseY <= 600:
+    if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Main.setup()
-                
-    if scene == "main":        
+            Regels4.setup()
+            scene = "regels4"
+            
+    if scene == "regels4":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
-                scene = ''
-    
+                scene = ""
+                
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
-            Regels2.setup()
-            scene = 'regels2'
-                
-    if scene == "regels2":        
+            Regels6.setup()
+            scene = "regels6"
+            
+    if scene == "regels6":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
-                scene = ''
-            
-            
-        
+                scene = ""
+    

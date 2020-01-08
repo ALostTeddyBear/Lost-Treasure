@@ -1,7 +1,7 @@
-add_library("sound")
 import Regels 
 import Dobbelsteen
 import PlayerSetup
+import Settings
 
 
 def setup():
@@ -32,8 +32,9 @@ def draw():
     if scene == "start":
         PlayerSetup.draw()
         return
-    
-    
+
+
+        
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
     
@@ -68,52 +69,47 @@ def draw():
     textSize(28)
     text("Afsluiten", width-87, height-47)
     
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
+    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
         if mousePressed:
             exit()
 
                 
-    if isMouseWithinSpace(84, 75, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 75 and mouseY <= 110:
         if mousePressed:
             PlayerSetup.setup()
-            scene = "start"            
+            scene = 'start'           
             
     if scene == "start":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
                 scene = ''
                     
-    if isMouseWithinSpace(84, 150, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 150 and mouseY <= 185:
         if mousePressed:
             Dobbelsteen.setup()
-            scene = "dobbelsteen"            
+            scene = 'dobbelsteen'            
             
     if scene == "dobbelsteen":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
                 scene = ''
     
-    if isMouseWithinSpace(84, 225, 100, 35):
+    if mouseX >= 84 and mouseX <= 184 and mouseY >= 225 and mouseY <= 260:
         if mousePressed:
             Regels.setup()
-            scene = "regels"
+            scene = 'regels'
+    
             
     if scene == "regels":        
         if isMouseWithinSpace(width-300, height-75, 100, 35):
             if mousePressed:
                 scene = ''        
+
             
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
+    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
         if mousePressed:
             exit()
-
-
-def mousePresw():
-    global scene, textBoxIsActive
-    PlayerSetup.mousePresss()
-
-
+            
     
 def keyPressed():
-    global scene, textBoxIsActive
     PlayerSetup.keyPressed()
