@@ -52,6 +52,10 @@ def draw():
         if mousePressed:
             Settings.scene = 'main'
             
+    if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
+        if mousePressed:
+            exit()
+            
 
 
 
