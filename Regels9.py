@@ -46,13 +46,8 @@ def draw():
     
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Main.setup()
             Settings.scene = "main"
             
-    if Settings.scene == "main":        
-        if isMouseWithinSpace(width - 350, height - 75, 100, 35):
-            if mousePressed:
-                Settings.scene = ""
     
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:

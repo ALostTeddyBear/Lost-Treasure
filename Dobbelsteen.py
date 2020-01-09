@@ -19,11 +19,10 @@ def draw():
 
     fill(255)
     stroke(204, 102, 0)
-    rect(width-150, height-75, 127, 35)
-
+    rect(width/1.095, height/1.15, 125, 55, 7)
     fill(0)
-    textSize(28)
-    text("Terug", width-87, height-47)
+    textSize(50)
+    text("Terug", width/1.06, height/1.1)
     
     if isMouseWithinSpace(840, 400, 200, 200):
         if mousePressed:
@@ -49,7 +48,7 @@ def draw():
         ellipse(875, 500, 50, 50)
         
 
-    if isMouseWithinSpace(width - 159, height - 75, 127, 35):
+    if isMouseWithinSpace(width/1.095, height/1.15, 125, 55):
         if mousePressed:
             Settings.scene = 'main'
             

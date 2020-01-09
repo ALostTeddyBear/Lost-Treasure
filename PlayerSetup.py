@@ -12,11 +12,11 @@ def setup():
     img4 = loadImage("Speler3.PNG")
     img5 = loadImage("Speler4.PNG")
     img6 = loadImage("Speler5.PNG")
-    message = 'Naam speler'
-    message2 = 'Naam speler'
-    message3 = 'Naam speler'
-    message4 = 'Naam speler'
-    message5 = 'Naam speler'
+    message = ' '
+    message2 = ' '
+    message3 = ' '
+    message4 = ' '
+    message5 = ' '
     side = int(random(1, 7))
 
 def draw():
@@ -149,7 +149,7 @@ def keyPressed():
                return
             message3 += key
 
-    if mouseX >= 100 and mouseX <= 350 and mouseY >=900 and mouseY <=980:
+    if mouseX >= 100 and mouseX <= 350 and mouseY >=700 and mouseY <=80:
 
         if key == BACKSPACE:
             message4 = message4[:-1]

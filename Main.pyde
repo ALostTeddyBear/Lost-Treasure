@@ -17,7 +17,6 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
         return False
 
 def draw():
-    print(Settings.scene)
     if Settings.scene == "regels":
         Regels.draw()
         return
@@ -36,73 +35,69 @@ def draw():
     textFont(Font)
     
     fill(0, 255, 255)
-    textSize(32)
+    textSize(100)
     textAlign(CENTER)
-    text("The Lost Treasures", width/2, 75)
+    text("The Lost Treasures", width / 2, height = 125)
 
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 75, 100, 35)
+    rect(width/30, height/6, 180, 55, 7)
     fill(0)
-    textSize(28)
-    text("Start", 130, 100)
+    textSize(50)
+    text("Start", width/17.5, height/6+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 150, 100, 35)
+    rect(width/30, height/4, 180, 55, 7)
     fill(0)
-    text("Dobbelsteen", 134, 175)
+    text("Dobbelsteen", width/13, height/4+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 225, 100, 35)
+    rect(width/30, height/3, 180, 55, 7)
     fill(0)
-    text("Regels", 134, 250)
+    text("Regels", width/16, height/3+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(width-150, height-75, 127, 35)
+    rect(width/1.25, height/1.15, 180, 55, 7)
     fill(0)
-    textSize(28)
-    text("Afsluiten", width-87, height-47)
+    textSize(50)
+    text("Afsluiten", width/1.19, height/1.1)
     
-    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
-        if mousePressed:
-            exit()
-                
-    if mouseX >= 84 and mouseX <= 184 and mouseY >= 75 and mouseY <= 110:
+    if isMouseWithinSpace(width/30, height/6, 180, 55):
         if mousePressed:
             PlayerSetup.setup()
             Settings.scene = 'start'           
             
     if Settings.scene == "start":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
                 Settings.scene = ''
                     
-    if mouseX >= 84 and mouseX <= 184 and mouseY >= 150 and mouseY <= 185:
+    if isMouseWithinSpace(width/30, height/4, 180, 55):
         if mousePressed:
             Dobbelsteen.setup()
             Settings.scene = 'dobbelsteen'            
             
     if Settings.scene == "dobbelsteen":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
                 Settings.scene = ''
     
-    if mouseX >= 84 and mouseX <= 184 and mouseY >= 225 and mouseY <= 260:
+    if isMouseWithinSpace(width/30, height/3, 180, 55):
         if mousePressed:
             Regels.setup()
             Settings.scene = 'regels'
     
             
     if Settings.scene == "regels":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
                 Settings.scene = ''        
 
             
-    if mouseX >= 1765 and mouseX <= 1892 and mouseY >= 1005 and mouseY <= 1040:
+    if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
         if mousePressed:
             exit()
             
