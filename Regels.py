@@ -2,7 +2,9 @@ import Regels2
 import Settings
 
 def setup():
+    global scene
     fullScreen()
+    scene = ''
     Background = loadImage("RulesBackground.jpg")
     Background.resize(width, height)
     background(Background)
@@ -14,6 +16,11 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
         return False
     
 def draw():
+    global scene
+    if scene == "regels2":
+        Regels2.draw()
+        return
+    
     img = loadImage("SpelKlaarZetten.png")
     imageMode(CENTER)
     image(img, width / 2, height / 2)
