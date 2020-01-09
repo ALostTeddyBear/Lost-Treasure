@@ -2,7 +2,7 @@ import Dobbelsteen
 import Settings
 
 def setup():
-    global message, message2, message3, message4, message5, message6, message7, message8, message9, message10, scene
+    global message, message2, message3, message4, message5, message6, message7, message8, message9, message10
     global textBoxIsActive, textBox2IsActive, textBox3IsActive, textBox4IsActive, textBox5IsActive, side, img, img2, img3, img4, img5, img6
     
     fullScreen()
