@@ -110,7 +110,7 @@ def draw():
 
 def mousePress():
     global scene, textBoxIsActive
-    PlayerSetup.mousePresss()
+    PlayerSetup.mousePress()
 
 
     

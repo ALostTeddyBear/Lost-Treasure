@@ -11,6 +11,7 @@ def setup():
     Background.resize(width, height)
     background(Background)
 
+
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True
@@ -27,14 +28,17 @@ def draw():
         Regels2.draw()
         return
     
-    img = loadImage("SpelKlaarZetten.png")
+    img = loadImage("RegelsTest.PNG")
+    img.resize(width, height)
     imageMode(CENTER)
     image(img, width / 2, height / 2)
+
     
-    Font = createFont("Rapscallion.ttf", 100)
-    textFont(Font)
-    text("Spel Regels!", width / 2, height / 8)
-    fill(240, 223, 55)
+    #Font = createFont("Rapscallion.ttf", 100)
+    #textFont(Font)
+    #text("Spel Regels!", width / 2, height / 8)
+    #fill(240, 223, 55)
+
     
     fill(255)
     stroke(204, 102, 0)
@@ -71,6 +75,5 @@ def draw():
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ''
-            
-            
+        
         

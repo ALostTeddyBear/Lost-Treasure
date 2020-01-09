@@ -53,7 +53,6 @@ def draw():
         fill(255)
     else:
         fill(0, 200, 0)
-    
     rect(100, 100, 250, 80)
     
     if textBox2IsActive:
