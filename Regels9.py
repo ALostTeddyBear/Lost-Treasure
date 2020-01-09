@@ -1,12 +1,8 @@
-add_library("sound")
-import Main
 import Regels8
+import Settings
 
 def setup():
-    global scene
-    
     fullScreen()
-    scene = ''
     Background = loadImage("RulesBackground.jpg")
     Background.resize(width, height)
     background(Background)
@@ -17,16 +13,7 @@ def isMouseWithinSpace(x, y, breedte, hoogte):
     else:
         return False
     
-def draw():
-    global scene
-    if scene == "regels8":
-        Regels8.draw()
-        return
-    
-    if scene == "main":
-        Main.draw()
-        return    
-    
+def draw():   
     img1 = loadImage("VoorbeeldMap1.png")
     img2 = loadImage("VoorbeeldMap2.png")
     img3 = loadImage("VoorbeeldMap3.png")
@@ -59,20 +46,15 @@ def draw():
     
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Main.setup()
-            scene = "main"
+            Settings.scene = "main"
             
-    if scene == "main":        
-        if isMouseWithinSpace(width - 350, height - 75, 100, 35):
-            if mousePressed:
-                scene = ""
     
     if isMouseWithinSpace(width - 150, height - 75, 127, 35):
         if mousePressed:
             Regels8.setup()
             scene = "regels8"
             
-    if scene == "regels8":        
+    if Settings.scene == "regels8":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
                 scene = ""

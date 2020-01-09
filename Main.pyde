@@ -1,119 +1,105 @@
-add_library("sound")
 import Regels 
 import Dobbelsteen
 import PlayerSetup
-
+import Settings
 
 def setup():
-    global bgm, scene
+    global Background
     fullScreen()
-    scene = ''
     Background = loadImage("image1.png")
     Background.resize(width, height)
     background(Background)
-    
     
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True
     else:
         return False
-    
+
 def draw():
-    global scene
-    if scene == "regels":
+    if Settings.scene == "regels":
         Regels.draw()
         return
     
-    if scene == "dobbelsteen":
+    if Settings.scene == "dobbelsteen":
         Dobbelsteen.draw()
         return
     
-    if scene == "start":
+    if Settings.scene == "start":
         PlayerSetup.draw()
         return
     
+    background(Background)
     
     Font = createFont("Rapscallion.ttf", 100)
     textFont(Font)
     
     fill(0, 255, 255)
-    textSize(32)
+    textSize(100)
     textAlign(CENTER)
-    text("The Lost Treasures", width/2, 75)
+    text("The Lost Treasures", width / 2, height = 125)
 
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 75, 100, 35)
+    rect(width/30, height/6, 180, 55, 7)
     fill(0)
-    textSize(28)
-    text("Start", 130, 100)
+    textSize(50)
+    text("Start", width/17.5, height/6+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 150, 100, 35)
+    rect(width/30, height/4, 180, 55, 7)
     fill(0)
-    text("Dobbelsteen", 134, 175)
+    text("Dobbelsteen", width/13, height/4+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(84, 225, 100, 35)
+    rect(width/30, height/3, 180, 55, 7)
     fill(0)
-    text("Regels", 134, 250)
+    text("Regels", width/16, height/3+45)
     
     fill(255)
     stroke(204, 102, 0)
-    rect(width-150, height-75, 127, 35)
+    rect(width/1.25, height/1.15, 180, 55, 7)
     fill(0)
-    textSize(28)
-    text("Afsluiten", width-87, height-47)
+    textSize(50)
+    text("Afsluiten", width/1.19, height/1.1)
     
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
-        if mousePressed:
-            exit()
-
-                
-    if isMouseWithinSpace(84, 75, 100, 35):
+    if isMouseWithinSpace(width/30, height/6, 180, 55):
         if mousePressed:
             PlayerSetup.setup()
-            scene = "start"            
+            Settings.scene = 'start'           
             
-    if scene == "start":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+    if Settings.scene == "start":        
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
-                scene = ''
+                Settings.scene = ''
                     
-    if isMouseWithinSpace(84, 150, 100, 35):
+    if isMouseWithinSpace(width/30, height/4, 180, 55):
         if mousePressed:
             Dobbelsteen.setup()
-            scene = "dobbelsteen"            
+            Settings.scene = 'dobbelsteen'            
             
-    if scene == "dobbelsteen":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+    if Settings.scene == "dobbelsteen":        
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
-                scene = ''
+                Settings.scene = ''
     
-    if isMouseWithinSpace(84, 225, 100, 35):
+    if isMouseWithinSpace(width/30, height/3, 180, 55):
         if mousePressed:
             Regels.setup()
-            scene = "regels"
+            Settings.scene = 'regels'
+    
             
-    if scene == "regels":        
-        if isMouseWithinSpace(width-300, height-75, 100, 35):
+    if Settings.scene == "regels":        
+        if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
             if mousePressed:
-                scene = ''        
+                Settings.scene = ''        
+
             
-    if isMouseWithinSpace(width-150, height-75, 100, 35):
+    if isMouseWithinSpace(width/1.25, height/1.15, 180, 55):
         if mousePressed:
             exit()
 
-
-def mousePress():
-    global scene, textBoxIsActive
-    PlayerSetup.mousePress()
-
-
-    
 def keyPressed():
-    global scene, textBoxIsActive
     PlayerSetup.keyPressed()

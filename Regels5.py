@@ -1,10 +1,8 @@
-add_library("sound")
 import Regels4
 import Regels6
 
 def setup():
     global scene
-    
     fullScreen()
     scene = ''
     Background = loadImage("RulesBackground.jpg")
@@ -27,14 +25,10 @@ def draw():
         Regels6.draw()
         return
     
-    img = loadImage("ValKaarten.png")
+    img = loadImage("RegelsTest5.PNG")
+    img.resize(width, height)
     imageMode(CENTER)
     image(img, width / 2, height / 2)
-    
-    Font = createFont("Rapscallion.ttf", 100)
-    textFont(Font)
-    text("Spel Regels!", width / 2, height / 8)
-    fill(240, 223, 55)
     
     fill(255)
     stroke(204, 102, 0)
