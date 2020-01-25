@@ -1,5 +1,5 @@
-import Regels2
-import Settings
+import Regels4
+import Regels6
 
 def setup():
     global scene
@@ -9,27 +9,26 @@ def setup():
     Background.resize(width, height)
     background(Background)
 
-
 def isMouseWithinSpace(x, y, breedte, hoogte):
     if (x < mouseX < x + breedte and y < mouseY < y + hoogte):
         return True
     else:
         return False
-    
+
 def draw():
     global scene
-    if scene == "regels2":
-        Regels2.draw()
+    if scene == "regels4":
+        Regels4.draw()
         return
     
-    img = loadImage("RegelsTest.PNG")
+    if scene ==  "regels6":
+        Regels6.draw()
+        return
+    
+    img = loadImage("RegelsTest5.PNG")
     img.resize(width, height)
     imageMode(CENTER)
     image(img, width / 2, height / 2)
-
-    
-
-
     
     fill(255)
     stroke(204, 102, 0)
@@ -46,17 +45,24 @@ def draw():
     fill(0)
     textSize(28)
     text("Volgende", width - 87, height - 47)
-
+    
     if isMouseWithinSpace(width - 300, height - 75, 127, 35):
         if mousePressed:
-            Settings.scene = 'main'
-    
-    if isMouseWithinSpace(width - 150, height - 75, 127, 35):
-        if mousePressed:
-            Regels2.setup()
-            scene = 'regels2'
-                
-    if Settings.scene == "regels2":        
+            Regels4.setup()
+            scene = "regels4"
+            
+    if scene == "regels4":        
         if isMouseWithinSpace(width - 350, height - 75, 100, 35):
             if mousePressed:
-                scene = ''
+                scene = ""
+                
+    if isMouseWithinSpace(width - 150, height - 75, 127, 35):
+        if mousePressed:
+            Regels6.setup()
+            scene = "regels6"
+            
+    if scene == "regels6":        
+        if isMouseWithinSpace(width - 350, height - 75, 100, 35):
+            if mousePressed:
+                scene = ""
+    
